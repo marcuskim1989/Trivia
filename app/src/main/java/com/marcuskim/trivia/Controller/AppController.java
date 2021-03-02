@@ -10,7 +10,6 @@ public class AppController extends Application {
     private static AppController instance;
     private RequestQueue requestQueue;
 
-
     public static synchronized AppController getInstance() {
 
         return instance;
