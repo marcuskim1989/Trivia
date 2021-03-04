@@ -86,7 +86,7 @@
             android:layout_marginTop="128dp"
             android:text="@string/score_text_placeholder"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="@dimen/point_counter_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"

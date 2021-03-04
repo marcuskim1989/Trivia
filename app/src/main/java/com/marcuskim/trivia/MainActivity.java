@@ -5,6 +5,8 @@ import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.marcuskim.trivia.Data.AnswerListAsyncResponse;
@@ -76,9 +78,11 @@ public class MainActivity extends AppCompatActivity {
                 pointCounter = 0;
             } else {
                 pointCounter++;
+                animateScale();
             }
         } else {
             snackMessageId = R.string.display_answer_incorrect;
+            animateShake();
         }
         binding.pointCounterTextView.setText(pointCounter + "/" + questionList.size() + " Points");
 
@@ -94,6 +98,18 @@ public class MainActivity extends AppCompatActivity {
         updateCounter((ArrayList<Question>) questionList);
 
 
+    }
+
+    private void animateScale() {
+        Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.correct_answer_zoom_pop);
+
+        binding.pointCounterTextView.setAnimation(scale);
+    }
+
+    private void animateShake() {
+        Animation shake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake_animation);
+
+        binding.cardView.setAnimation(shake);
     }
 
     private void updateCounter(ArrayList<Question> questionArrayList) {
