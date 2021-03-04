@@ -2,38 +2,38 @@ package com.marcuskim.trivia.Model;
 
 public class Question {
 
-    private String answer;
-    private boolean AnswerTrue;
+    private String statement;
+    private boolean answer;
 
     public Question() {
     }
 
-    public Question(String answer, boolean answerTrue) {
+    public Question(String statement, boolean answer) {
+        this.statement = statement;
         this.answer = answer;
-        AnswerTrue = answerTrue;
     }
 
-    public String getAnswer() {
+    public String getStatement() {
+        return statement;
+    }
+
+    public void setStatement(String statement) {
+        this.statement = statement;
+    }
+
+    public boolean isAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(boolean answer) {
         this.answer = answer;
-    }
-
-    public boolean isAnswerTrue() {
-        return AnswerTrue;
-    }
-
-    public void setAnswerTrue(boolean answerTrue) {
-        AnswerTrue = answerTrue;
     }
 
     @Override
     public String toString() {
         return "Question{" +
-                "answer='" + answer + '\'' +
-                ", AnswerTrue=" + AnswerTrue +
+                "answer='" + statement + '\'' +
+                ", AnswerTrue=" + answer +
                 '}';
     }
 }

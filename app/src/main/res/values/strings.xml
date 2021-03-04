@@ -6,4 +6,6 @@
     <string name="false_button">False</string>
     <string name="next_button">Next</string>
     <string name="placeholder">This is where we\'ll show a statement.</string>
+    <string name="display_answer_correct">Correct</string>
+    <string name="display_answer_incorrect">Incorrect</string>
 </resources>
