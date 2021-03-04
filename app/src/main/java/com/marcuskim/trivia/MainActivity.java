@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private int currentQuestionIndex = 0;
+    private int pointCounter = 0;
 
     List<Question> questionList;
 
@@ -36,25 +37,22 @@ public class MainActivity extends AppCompatActivity {
 
                 binding.questionTextView.setText(questionArrayList.get(currentQuestionIndex).getStatement());
 
+                binding.pointCounterTextView.setText(pointCounter + "/" + questionList.size() + " Points");
                 updateQuestion();
 
             }
 
-        });
-
-        binding.buttonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentQuestionIndex = (currentQuestionIndex + 1) % questionList.size();
-                updateQuestion();
-
-            }
         });
 
         binding.buttonTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 checkAnswer(true);
+
+                currentQuestionIndex = (currentQuestionIndex + 1) % questionList.size();
+
+
+                updateQuestion();
             }
         });
 
@@ -62,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer(false);
+                currentQuestionIndex = (currentQuestionIndex + 1) % questionList.size();
+                updateQuestion();
             }
         });
 
@@ -72,9 +72,15 @@ public class MainActivity extends AppCompatActivity {
         int snackMessageId = 0;
         if (userChoice == answer) {
             snackMessageId = R.string.display_answer_correct;
+            if(currentQuestionIndex >= questionList.size() - 1) {
+                pointCounter = 0;
+            } else {
+                pointCounter++;
+            }
         } else {
             snackMessageId = R.string.display_answer_incorrect;
         }
+        binding.pointCounterTextView.setText(pointCounter + "/" + questionList.size() + " Points");
 
         Snackbar.make(binding.cardView, snackMessageId, Snackbar.LENGTH_SHORT).show();
     }

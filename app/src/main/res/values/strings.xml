@@ -8,4 +8,5 @@
     <string name="placeholder">This is where we\'ll show a statement.</string>
     <string name="display_answer_correct">Correct</string>
     <string name="display_answer_incorrect">Incorrect</string>
+    <string name="score_text_placeholder"></string>
 </resources>
