@@ -3,8 +3,8 @@
 
     android:duration="300"
     android:fromDegrees="-10"
-    android:pivotX="30%"
-    android:pivotY="30%"
+    android:pivotX="50%"
+    android:pivotY="50%"
     android:repeatCount="1"
     android:repeatMode="reverse"
     android:toDegrees="10"
